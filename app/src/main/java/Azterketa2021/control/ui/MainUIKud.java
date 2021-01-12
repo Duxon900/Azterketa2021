@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.Callback;
 import org.apache.commons.codec.binary.Hex;
+import org.sqlite.core.DB;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -130,6 +131,9 @@ public class MainUIKud implements Initializable {
                 checkSum.setMd5(hashtext);
                 checkSum.setURL(link);
                 emaitza.add(checkSum);
+
+                String query="insert into checksums (idCMS,md5,path,version) values ('1','"+checkSum.getMd5()+"','README','-')";
+                DBKudeatzaile.getInstantzia().execSQL(query);
 
                 lblEzDago.setVisible(true);
                 lblSartu.setVisible(false);
