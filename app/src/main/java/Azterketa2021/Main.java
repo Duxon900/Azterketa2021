@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
@@ -17,6 +18,7 @@ public class Main extends Application {
         stage = primaryStage;
 
         stage.setTitle("Azterketa 2021");
+        stage.initStyle(StageStyle.UNDECORATED);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main.fxml"));
         mainUI = (Parent) loader.load();
